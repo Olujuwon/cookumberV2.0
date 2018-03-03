@@ -1,0 +1,51 @@
+@import "./variables";
+@import "./mixins";
+
+.header-container{
+    width: $full;
+    height: 220px;
+    background-color: $white;
+    display:flex;
+    justify-content:center;
+    border-bottom:2px solid $orange;
+}
+.Logo-wrap{
+    width:$half;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.logo{
+    width: 320px;
+    height: 180px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.cookumber{
+    width: 250px;
+    height: 150px;
+    margin-top: 5px;
+}
+a:hover{
+    color: $lite-orange;
+}
+.navigation{
+    width: $full;
+    display:inline-block;
+    margin: auto;
+    text-align: center;
+}
+.active{
+    color: $lite-orange;
+}
+a {
+    @include links;
+    padding: 10px;
+    margin: 10px;
+    color:$orange;
+    width:$half;
+    line-height: 20px;
+    font-size: $medium;
+    font-weight: 500;
+   
+}

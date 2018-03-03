@@ -1,0 +1,43 @@
+@import "./variables";
+
+.dashboard{
+    width: 90%;
+    height:350px;
+    margin: auto;
+    background-color: $very-lite-orange;
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+}
+.left{
+    width: $half;
+    color: $grey;
+    display: flex;
+    flex-direction: column;
+    margin-inline-start: 20px;
+    width: $half;
+    margin-top: 10px;
+}
+.right{
+    width: $half;
+    margin-top: 10px;
+    
+}
+.table-head{
+    width: $tre-q;
+    margin-top: 5px;
+    line-height: $form-height;
+    outline: none;
+    background-color: $grey;
+    color: $white;
+    cursor: pointer;
+    text-indent: 10px;
+    border-radius: 4px;
+}
+table{
+    width: 90%;
+}
+td{
+    width: 30%;
+    text-indent: 10px;
+}

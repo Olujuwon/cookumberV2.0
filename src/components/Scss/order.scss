@@ -1,0 +1,28 @@
+@import "./mixins";
+@import "./variables";
+
+.order-input{
+    @include large-input($white, $medium, $form-height-2, $grey);
+    text-indent: 10px;
+    border-radius: 4px;
+}
+.fullname{
+    margin-top: 5px;
+}
+input::-webkit-input-placeholder{
+    text-indent: 10px;
+    @include place-holder($white, $medium, $form-height)
+}
+button{
+    @include button($white, $medium, $form-height-2, $grey);
+}
+.menu-key{
+    width:$tre-q;
+    color: black;
+    margin: auto;
+    font-size: $small;
+    font-weight: 800;
+}
+.order-title{
+    color: $grey;
+}

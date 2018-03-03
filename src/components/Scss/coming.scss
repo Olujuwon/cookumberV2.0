@@ -1,0 +1,15 @@
+@import "./variables";
+@import "./mixins";
+
+.container{
+    width: 90%;
+    text-align: center;
+        img{
+            margin-bottom: 20px;
+        }
+}
+
+h1{
+    color: $grey;
+    margin-bottom: 20px;
+}

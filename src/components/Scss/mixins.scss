@@ -1,0 +1,86 @@
+@mixin small-input($white, $medium, $form-height, $grey) {
+    border:0px;
+    border-bottom: $white 1px solid;
+    font-size: $medium;
+    width: 25%;
+    line-height: $form-height;
+    outline: none;
+    color: $white;
+    background-color: $grey;
+    margin: 5px 0 5px 0;
+}
+
+@mixin medium-input($white, $medium, $form-height, $grey) {
+    border:0px;
+    border-bottom: $white 1px solid;
+    font-size: $medium;
+    width: 50%;
+    line-height: $form-height;
+    outline: none;
+    color: $white;
+    background-color: $grey;
+    margin: 5px 0 5px 0;
+}
+
+@mixin large-input($white, $medium, $form-height, $grey) {
+    border:0px;
+    border-bottom: $white 1px solid;
+    font-size: $medium;
+    width: 75%;
+    line-height: $form-height;
+    outline: none;
+    color: $white;
+    background-color: $grey;
+    margin: 5px 0 5px 0;
+}
+
+@mixin x-large-input($white, $medium, $form-height, $grey) {
+    border:0px;
+    border-bottom: $white 1px solid;
+    font-size: $medium;
+    width: 100%;
+    line-height: $form-height;
+    outline: none;
+    color: $white;
+    background-color: $grey;
+    margin: 5px 0 5px 0;
+}
+
+@mixin text-area($medium){
+    background-color: #6C7A89;
+    display: block;
+    font-size: $medium;
+    color:  $white;
+    outline: none;
+    border: 1px solid $white;
+    width: 80%;
+    height: 150px;
+}
+
+@mixin button($white, $medium, $form-height, $grey) {
+    font-size: $medium;
+    width: 15% * 2;
+    line-height: $form-height;
+    outline: none;
+    color: $grey;
+    margin: 0px 10px 5px 0;
+    margin-top: 20px;
+}
+ 
+@mixin place-holder($white, $medium, $form-height) {
+    font-size: $medium;
+    line-height: $form-height;
+    color: $white;
+}
+
+@mixin place-holder-textarea($white, $medium, $form-height) {
+    font-size: $medium;
+    height: $textarea-height;
+    color: $white;
+}
+
+@mixin links(){
+    text-decoration: none;
+    list-style-type: none;
+    cursor: pointer;
+}

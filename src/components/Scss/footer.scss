@@ -1,0 +1,22 @@
+@import "./variables";
+
+.footer-container{
+    width: 90%;
+    height: 200px;
+    margin: auto;
+    background-color: rgba(230, 189, 93, 0.308);
+    border-top: 2px solid $orange;
+}
+.social-media{
+    text-align: center;
+    width: $full;
+    line-height: 100px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.719);
+    color:$orange;
+}
+.svg{
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}

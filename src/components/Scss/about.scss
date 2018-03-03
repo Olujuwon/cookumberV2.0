@@ -1,0 +1,46 @@
+@import "./variables";
+@import "./mixins";
+
+.container{
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.abt-th{
+    background-color: $orange;
+    color: $white;
+    text-align: left;
+    text-indent: 20px;
+    line-height: $form-height-2;
+    border-radius: 4px;
+    font-size: $medium;
+}
+
+.abt-tr div{
+    width: 95%;
+    color: $grey;
+   margin-inline-start: 20px;
+   font-size: 0.9rem;
+   padding: 10px;
+   text-align: justify;
+}
+.abt-tr{
+    width: 100%;
+        .td-chef{
+            width: $ett-q;
+            text-align: center;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+        }
+        .chef{
+            width: $tre-q;
+            text-align: justify;
+        }
+}
+
+.div-table{
+    margin-bottom: 125px;
+}
