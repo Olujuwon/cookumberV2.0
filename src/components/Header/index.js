@@ -8,7 +8,7 @@ const Header = ()=>{
 		<div className="header-container">
 			<div className="Logo-wrap">
 				<div className='logo'>
-					<NavLink to="/home"  ><img src={logo} 
+					<NavLink to="/ck/home"  ><img src={logo} 
 						alt="Cookumber" className="cookumber"/></NavLink>
 				</div>
 				<div className="navigation">
@@ -20,8 +20,6 @@ const Header = ()=>{
 					<NavLink activeClassName="active" to="/ck/services"  >Services</NavLink>
 					<NavLink activeClassName="active" to="/ck/users"  >Client area</NavLink>
 					<NavLink activeClassName="active" to="/ck/contact" >Contact</NavLink>
-						
-					
 				</div>
 			</div>
 			

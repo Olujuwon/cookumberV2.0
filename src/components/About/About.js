@@ -3,35 +3,23 @@ import React from "react";
 import texts from "./texts.json";
 import chef from "./chef.json";
 import "../Scss/about.scss";
-import image from "../../imgs/dami.jpg";
+//import image from "../../imgs/dami.jpg";
 
-const About = ()=>{
+
+const About = (props)=>{
 	return(
-		<div className="div-table">
+		<div className="aboutContainer">
 			{texts.map((txt,i)=>{return(
-				<table className="container" key={i}>
-					<tbody>
-						<tr><th className="abt-th">{txt.label}</th></tr>
-						<tr className="abt-tr"> 
-							<div>{txt.message}</div>
-						</tr>
-					</tbody>
-				</table>
+				<div key={i} className="wordsDiv">
+					<div className="labelDiv"><h3>{txt.label}</h3></div>
+					{txt.message}
+				</div>
 			);}
 			)}
-			<table className="container">
-				<tbody>
-					<tr><th className="abt-th" colspan="2">{chef[0]["label-4"]}</th></tr>
-					<tr className="abt-tr"> 
-						<td className="td-chef"><img src={image} alt="chef"/></td>
-						<td className="chef">
-							<div>
-								{chef[0].chef}
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<div  className="wordsDiv">
+				<div className="labelDiv"><h3>{chef[0].label}</h3></div>
+				{chef[0].chef}
+			</div>
 		</div>
 	);
 };

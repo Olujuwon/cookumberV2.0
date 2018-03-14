@@ -10,6 +10,7 @@
     margin: 5px 0 5px 0;
 }
 
+
 @mixin medium-input($white, $medium, $form-height, $grey) {
     border:0px;
     border-bottom: $white 1px solid;
@@ -46,8 +47,8 @@
     margin: 5px 0 5px 0;
 }
 
-@mixin text-area($medium){
-    background-color: #6C7A89;
+@mixin text-area($medium, $lite-grey){
+    background-color: $lite-grey;
     display: block;
     font-size: $medium;
     color:  $white;
@@ -75,8 +76,8 @@
 
 @mixin place-holder-textarea($white, $medium, $form-height) {
     font-size: $medium;
-    height: $textarea-height;
     color: $white;
+    text-indent: 10px;
 }
 
 @mixin links(){

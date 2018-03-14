@@ -16,12 +16,9 @@
     flex-direction: column;
     margin-inline-start: 20px;
     width: $half;
-    margin-top: 10px;
 }
 .right{
     width: $half;
-    margin-top: 10px;
-    
 }
 .table-head{
     width: $tre-q;
@@ -32,7 +29,6 @@
     color: $white;
     cursor: pointer;
     text-indent: 10px;
-    border-radius: 4px;
 }
 table{
     width: 90%;
@@ -40,4 +36,13 @@ table{
 td{
     width: 30%;
     text-indent: 10px;
+}
+.hide{
+    display:none;
+}
+
+.toggle{
+    width:10px;
+    height: 10px;
+    margin-inline-end: 10px;
 }

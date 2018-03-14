@@ -14,6 +14,18 @@ class ImageSlider extends Component {
 			imgarrlen:images.length -1
 		};
 	}
+
+autoSlider = ()=>{
+	if(this.state.image === 0 || this.state.image !== this.state.imgarrlen){
+		this.incremeMent();
+		console.log("Its coming Good!");
+	}else {
+		let img = 0;
+		this.setState({image: img});
+		console.log("Its going back!");
+	}
+}	
+
 incremeMent = ()=>{
 	let img = this.state.image +1;
 	this.setState({image: img});
@@ -22,6 +34,11 @@ decremeMent = ()=>{
 	let img = this.state.image -1;
 	this.setState({image: img});
 }
+
+componentDidMount(){
+	setInterval(this.autoSlider, 10000);
+}
+
 render(){
 	return (
 		<div className="slider">
