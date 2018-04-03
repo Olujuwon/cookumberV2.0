@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = " http://localhost:8000/menu/";
+const url = " https://cookumber-b82fb.firebaseio.com/.json";
 const header = {"Access-Control-Allow-Origin": "*"};
 
 const getApi = (url, headers) => axios.get(url, header);

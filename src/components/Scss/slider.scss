@@ -30,3 +30,40 @@ img{
 .disabled{
     display: none
 }
+
+/*Responsive design starts here with 5 breakpoints*/
+@media screen and (max-width:500px) {
+    .slider{
+        width: 90%;
+        height: 300px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    img{
+        height: 300px;
+    }
+    .slider-arrow{
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        margin: 0 25px 0 25px;
+    }
+}
+
+@media screen and (max-width:414px) {
+    .slider{
+        width: 90%;
+        height: 200px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    img{
+        height: 200px;
+    }
+    .slider-arrow{
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        margin: 0 25px 0 25px;
+    }
+}

@@ -26,7 +26,8 @@ fetch = async () => {
 }
 
 date =()=>{
-	//let monthArr = ["January", "February","March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	//let monthArr = ["January", "February","March", "April", "May", "June", "July", "August", 
+	//"September", "October", "November", "December"];
 	const day = this.state.day.getDate();
 	const month =`${this.state.day.getMonth()<10 ? `0${this.state.day.getMonth()+1}`: 
 		this.state.day.getMonth()+1}`;
@@ -37,6 +38,7 @@ date =()=>{
 
 
 render(){
+	console.log(this.state.menus);
 	return (
 		<div className="dashboard">
 			<div className="left">
@@ -44,7 +46,8 @@ render(){
 			</div>
 			<div className="right">
 				<OrderForm title="Quick Order!" motd="we are open today for 2hrs, from 1200 - 1400" 
-					menukey="L = lactose free   VL = low lactose   M = milk free   G = gluten free   A = incl. allergens   VEG = vegan"/>
+					menukey="L = lactose free   VL = low lactose   M = milk free   G = gluten free   
+					A = incl. allergens   VEG = vegan"/>
 			</div>
 		</div>
 	);

@@ -9,6 +9,7 @@ import ServicesPage from "../Services/Services";
 import ContactPage from "../Contact/Contact";
 import UsersPage from "../Clients/index";
 import Test from "../Containers/test";
+import AdminPage from "../Admin/AdminPage";
 
 const MainLayout = ({match}) => {
 	return(
@@ -21,6 +22,7 @@ const MainLayout = ({match}) => {
 				<Route path = {`${match.url}/contact`} component={ContactPage}/>
 				<Route path = {`${match.url}/home`} component={HomePage}/>
 				<Route path = {`${match.url}/test`} component={Test}/>
+				<Route path = {`${match.url}/admin`} component={AdminPage}/>
 				<Redirect from = {match.url} to={`${match.url}/home`}/>
 			</Switch>
 			<Footer/>

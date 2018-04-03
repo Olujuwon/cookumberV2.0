@@ -46,3 +46,27 @@ td{
     height: 10px;
     margin-inline-end: 10px;
 }
+
+/*Responsive design starts here with 5 breakpoints*/
+@media screen and (max-width:964px) {
+    .Logo-wrap{
+        width:$tre-q;
+        margin-top: 10px;
+    }
+    .logo{
+        width: 300px;
+        height: 160px;
+    }
+}
+
+@media screen and (max-width:640px) {
+  
+}
+
+@media screen and (max-width:500px) {
+    
+}
+
+@media screen and (max-width:414px) {
+
+}
