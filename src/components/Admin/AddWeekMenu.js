@@ -1,87 +1,48 @@
 import React from "react";
 
-import { Field, reduxForm } from "redux-form";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
 import Cart from "../Cart/Cart";
 
 
-export const DatePickerComponent = field => {
-	//const { input: { value, onChange } } = props;
-	return (
-		<div>
-			<DayPickerInput inputProps={{...field.input}} onDayChange={(day) => console.log(day)} />
-		</div>
-	);
-};
+
 
 class AddWeekMenu extends React.Component{
 	constructor(props){
 		super (props);
-		this.state = {};
+		this.state = {
+			date: "",
+			menutype: "",
+			foodname: "",
+			price: ""
+
+		};
 	}
 
 	weekMenu = props => {
-		const {handleSubmit, pristine, reset, submitting} = props;
+		const handleSubmit = (e)=>{
+			e.preventDefault();
+			const weekNumber = (new Date())
+			const formValues = {
+				date: (this.state.date).toString(),
+				menutype: this.state.menutype,
+				foodname : this.state.foodname,
+				price: this.state.price,
+				weeknumber: weekNumber
+			};
+			console.log(formValues);
+		};
+		
 		return (
 			<form onSubmit={handleSubmit}>
-				<h2 className="order-title">{props.title}</h2>
-				<p className="order-motd">{props.motd}</p>
-				<div className="date">
-					<Field
-						name="date"
-						//component="input"
-						type="date"
-						placeholder="Date"
-						component = {DatePickerComponent}
-						className="menu-input"/> 
-				</div>
-				<div>
-					<label>
-						<Field
-							name="menutype"
-							component="input"
-							type="radio"
-							value="Breakfast"
-						/>{" "}
-				Breakfast
-					</label>
-					<label>
-						<Field
-							name="menutype"
-							component="input"
-							type="radio"
-							value="Lunch"
-						/>{" "}
-				Lunch
-					</label>
-				</div>
-				<div>
-					<Field
-						name="foodname"
-						component="input"
-						type="text"
-						placeholder="Food Name"
-						className="menu-input"
-					/>
-				</div>
-				<div>
-					<Field
-						name="foodprice"
-						component="input"
-						type="number"
-						placeholder="Price"
-						className="menu-input"
-					/>
-				</div>
-				<div>
-					<button type="submit" disabled={pristine || submitting} className = "menuButton">
-					Order
-					</button>
-					<button type="button" disabled={pristine || submitting} onClick={reset} className = "menuButton">
-					Cancel
-					</button>
-				</div>
+				<DayPickerInput onDayChange={day => this.setState({date: day})} className="inputField"/>
+				<select name="menutype" value={this.state.menutype}  onChange={(e)=>{this.setState({menutype: e.target.value});}}>
+					<option value="Breakfast">Breakfast</option>
+					<option value="Lunch">Lunch</option>
+				</select>
+				<input type="text" name="foodname" className="inputField" onChange = {(e)=>{this.setState({foodname: e.target.value});}} />
+				<input type="number" name="price" className="inputField" onChange = {(e)=>{this.setState({price: e.target.value});}} />
+				<input type="submit" value="Add"/>
 			</form>
 		);
 	};
@@ -89,7 +50,7 @@ class AddWeekMenu extends React.Component{
 	render(){
 		return(
 			<div>
-				< Cart  value= "2"/>
+				< Cart />
 				< this.weekMenu />
 			</div>
 		);
@@ -97,4 +58,4 @@ class AddWeekMenu extends React.Component{
 }
 
 
-export default reduxForm({form: "weekmenu"})(AddWeekMenu);
+export default AddWeekMenu;

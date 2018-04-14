@@ -2,8 +2,8 @@ import React from "react";
 
 import {connect} from "react-redux";
 //import isEqual from "lodash/isEqual";
-import filter from "lodash/find";
-import matches from "lodash/matchesProperty";
+//import filter from "lodash/find";
+//import matches from "lodash/matchesProperty";
 
 import {formSelector} from "../../redux/selectors";
 
