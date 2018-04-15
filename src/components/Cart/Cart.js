@@ -7,7 +7,6 @@ import {connect} from "react-redux";
 
 import {formSelector} from "../../redux/selectors";
 
-let cartObjects = JSON.parse(localStorage.getItem("Cart-Items"));
 
 class Cart extends React.Component{
 	constructor(props){
@@ -18,20 +17,10 @@ class Cart extends React.Component{
 			datamonitor: 0
 		};
 	}
-    
-dataStore = (data)=>{
-	localStorage.setItem("Cart-Items", JSON.stringify(data));
-}
 
 handleReset = ()=>{
 	localStorage.clear();
 	this.dataStore([]);
-}
-
-componentWillMount(){
-	if (cartObjects === null){
-		this.dataStore([]);
-	}
 }
 
 CartIsEmpty = (props)=> {
@@ -46,7 +35,7 @@ CartIsEmpty = (props)=> {
 NormalDisplay = (props)=> {
 	return(
 		<div>
-			<h5>{props.name}</h5> <p>{cartObjects.length}</p>
+			<h5>{props.name}</h5> <p>{this.props.count}</p>
 		</div>
 	);
 }
@@ -54,41 +43,31 @@ NormalDisplay = (props)=> {
 TouchedDisplay = (props)=> {
 	return(
 		<div>
-			<h5>{props.name}</h5> <p>{cartObjects.length}</p>
-			<table>
-				<tbody>
-					<tr>"Eba and Efo riro"</tr>
-					<tr>"23-04-2018"</tr>
-					<tr>"1500"</tr>
-				</tbody>
-			</table>
+			<h5>{props.name}</h5> <p>{this.props.count}</p>
+			{props.arrItems.map((item, i ) => {
+				const itemKeys = Object.values(item);
+				return(
+					<table key={i}>
+						{itemKeys.map((value,index) => {return <tbody key={index}>
+							<tr>{value}</tr></tbody> ;})}
+					</table>
+				);
+			})}
 			<input type="button" value="SEND" />
 			<input type="button" value="RESET" onClick = {this.handleReset}/>
-			{/*cartObjects.map((item, i ) => {
-                return(
-                    <table>
-                        <tr>item.date</tr>
-                        <tr>item.name</tr>
-                        <tr>item.price</tr>
-                    </table>
-                    <input type="button" value="SEND" />
-			        <input type="button" value="RESET" onClick = {this.handleReset}/>
-                );
-            })*/}
 		</div>
 	);
 }
 
 render(){
-	//const formObject = this.props.form.weekmenu.values;
-	//const uniqueFormObjectCheck = filter(cartObjects, matches(formObject));
-	if(this.state.datamonitor === 0){
+	if(this.props.count === 0){
 		return <this.CartIsEmpty name="Menu" emptyMessage="Cart is Empty"/>;
 	} else {
-		this.dataStore(this.props.form.weekmenu.values);
+		console.log(this.props.modalcontent);
 		return(
 			<div onClick = {()=>this.setState({click: !this.state.click})}>
-				{this.state.click === false ? <this.NormalDisplay name="Menu" /> : <this.TouchedDisplay name="MenuTouch" />}
+				{this.state.click === false ? <this.NormalDisplay name="Menu" /> 
+					: <this.TouchedDisplay name="MenuTouch" arrItems={this.props.modalcontent} />}
 			</div>
 		);
 	}

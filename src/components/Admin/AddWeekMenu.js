@@ -3,6 +3,7 @@ import React from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
 import Cart from "../Cart/Cart";
+import weeknumber from "current-week-number";
 
 
 
@@ -12,17 +13,23 @@ class AddWeekMenu extends React.Component{
 		super (props);
 		this.state = {
 			date: "",
-			menutype: "",
+			menutype: "Breakfast",
 			foodname: "",
-			price: ""
-
+			price: "",
+			itemsarray:[],
+			
 		};
 	}
 
 	weekMenu = props => {
 		const handleSubmit = (e)=>{
 			e.preventDefault();
-			const weekNumber = (new Date())
+			//localStorage.setItem("Cart-Items", JSON.stringify([]));
+			//let cartItemArr =  JSON.parse(localStorage.getItem("Cart-Items"));
+			let dateParsed = ((this.state.date).toString()).split(" ");
+			//["Sat", "Apr", "14", "2018", "12:00:00", "GMT+0300", "(EEST)"]
+			let weekNumberDate = `${dateParsed[1]} ${dateParsed[2]}, ${dateParsed[3]}`;
+			const weekNumber = weeknumber(new Date(weekNumberDate));
 			const formValues = {
 				date: (this.state.date).toString(),
 				menutype: this.state.menutype,
@@ -30,7 +37,17 @@ class AddWeekMenu extends React.Component{
 				price: this.state.price,
 				weeknumber: weekNumber
 			};
-			console.log(formValues);
+			this.state.itemsarray.push(formValues);
+			console.log(this.state.itemsarray.length);
+			this.setState({
+				date: "",
+				menutype: "",
+				foodname: "",
+				price: ""
+			});
+			//localStorage.setItem("Cart-Items", JSON.stringify(formValues));
+			//console.log(cartItemArr.push(formValues));
+			//console.log(cartItemArr);
 		};
 		
 		return (
@@ -50,7 +67,7 @@ class AddWeekMenu extends React.Component{
 	render(){
 		return(
 			<div>
-				< Cart />
+				< Cart count={this.state.itemsarray.length} modalcontent={this.state.itemsarray}/>
 				< this.weekMenu />
 			</div>
 		);
