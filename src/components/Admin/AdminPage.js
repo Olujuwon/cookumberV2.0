@@ -13,9 +13,11 @@ Header = props => {
 render() {
 	return (
 		<div className = "adminContainer">
-			<this.Header name = "Administrator"/>
-			<AddWeekMenu title = "Enter Weekly menu Here" motd = "Remember to do your research before
+			<this.Header name = "Administrator" className="sectionOne"/>
+			<div>
+				<AddWeekMenu title = "Enter Weekly menu Here" motd = "Remember to do your research before
             adding anything" />
+			</div>
 		</div>
 	);
 }
