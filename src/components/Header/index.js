@@ -1,20 +1,55 @@
 import React from "react";
-import logo from "../../imgs/cookumber.png";
-import "../Scss/header.scss";
+import {Link} from "react-router-dom";
 
-const Header = ()=>{
+import logo from "../../imgs/cookumber-rect.png";
+
+import { withStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import "./header.scss";
+
+
+const styles = theme => ({
+	button: {
+		margin: theme.spacing.unit,
+	},
+	input: {
+		display: "none",
+	},
+});
+
+const Header = (props)=>{
+	const { classes } = props;
 	return (
-		<div className="header-container">
-			<div className="Logo-wrap">
-				<div className='logo'>
-					<img src={logo} 
-						alt="Cookumber" className="cookumber"/>
-				</div>
+		<Toolbar className="toolbar">
+			<Link to="/order">
+				<img 
+					src={logo} 
+					alt="cookumber_logo"
+					className="logo"
+				/>
+			</Link>
+			<div className="leftSection">
+				<Link to="/signin">
+					<Button 
+						className={classes.button}>
+					Login
+					</Button>
+				</Link>
+				<Link to="/signup">
+					<Button 
+						className={classes.button}
+						variant="raised" 
+						color="secondary">
+					Sign Up
+					</Button>
+				</Link>
 			</div>
-			
-		</div>
+		</Toolbar>
 	);
 
 };
 
-export default Header;
+
+
+export default withStyles(styles)(Header);

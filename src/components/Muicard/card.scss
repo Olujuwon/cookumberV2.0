@@ -1,0 +1,61 @@
+@import "../Scss/variables";
+@import "../Scss/mixins";
+
+
+.container{
+    width: 20%;
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: left;
+    display: inline-block;
+    margin: 10px;
+}
+
+.foodName{ 
+    margin: 5px 0px 5px 10px;
+    font-size: 15px;
+}
+
+.imageContainer{
+    height: 35vh;
+}
+
+.heading{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.date{
+    font-size: 15px;
+}
+
+.cardImg{
+    width: 100%;
+    margin: 0px;
+    height: 70%;
+    cursor: pointer;
+}
+
+.text{
+    font-size: 15px;
+}
+
+.icons{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.fav{
+    cursor: pointer;
+}
+
+.like{
+    cursor: pointer;
+}
+
+.overlay{
+    width: 100%;
+    color: white;
+}

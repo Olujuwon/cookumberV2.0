@@ -4,8 +4,9 @@ import instagram from "../../imgs/instagram.svg";
 import snapchat from "../../imgs/snapchat.svg";
 import twitter from "../../imgs/twitter-logo.svg";
 import youtube from "../../imgs/youtube.svg";
+//import telephone from "../../imgs/telephone.svg";
 
-import "../Scss/footer.scss";
+import "./footer.scss";
 
 const Footer = ()=>{
 	return (
