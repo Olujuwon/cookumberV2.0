@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 import logo from "../../imgs/cookumber-rect.png";
 
@@ -18,37 +18,53 @@ const styles = theme => ({
 	},
 });
 
-const Header = (props)=>{
-	const { classes } = props;
-	return (
-		<Toolbar className="toolbar">
-			<Link to="/order">
-				<img 
-					src={logo} 
-					alt="cookumber_logo"
-					className="logo"
-				/>
-			</Link>
-			<div className="leftSection">
-				<Link to="/signin">
-					<Button 
-						className={classes.button}>
-					Login
-					</Button>
-				</Link>
-				<Link to="/signup">
-					<Button 
-						className={classes.button}
-						variant="raised" 
-						color="secondary">
-					Sign Up
-					</Button>
-				</Link>
-			</div>
-		</Toolbar>
-	);
+class Header extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			loginState: false
+		};
+	}
 
-};
+	handleLoginState = ()=>{
+		this.setState({loginState: !this.state.loginState});
+	}
+
+	render(){
+		console.log(this.props);
+		const { classes } = this.props;
+		return (
+			<Toolbar className="toolbar">
+				<NavLink to="/">
+					<img 
+						src={logo} 
+						alt="cookumber_logo"
+						className="logo"
+					/>
+				</NavLink>
+				<div className="leftSection">
+					<NavLink to="/signin">
+						<Button 
+							className={classes.button}
+							disabled={this.state.loginState}
+						>
+					Login
+						</Button>
+					</NavLink>
+					<NavLink to="/signup">
+						<Button 
+							className={classes.button}
+							variant="raised" 
+							color="secondary">
+					Sign Up
+						</Button>
+					</NavLink>
+				</div>
+			</Toolbar>
+		
+		);
+	}
+}
 
 
 

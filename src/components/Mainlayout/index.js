@@ -9,19 +9,12 @@ import "./index.scss";
 const MainLayout = props => {
 	return(
 		<div className="maincontainer">
-			<Title icon={sales} title="Breakfast menu of the day "/>
-			<div className="containerDiv">
-				<OrderCard />
-				<OrderCard />
-				<OrderCard />
-				<OrderCard />
-			</div>
-			<Title icon={sales} title="Lunch menu of the day "/>
-			<div className="containerDiv">
-				<OrderCard />
-				<OrderCard />
-				<OrderCard />
-				<OrderCard />
+			<div className="uppersection">
+				<Title icon={sales} title="Breakfast menu of the day "/>
+				<div className="containerDiv">
+					<OrderCard />
+					<OrderCard />
+				</div>
 			</div>
 			<Info />
 		</div>

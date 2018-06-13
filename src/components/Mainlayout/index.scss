@@ -4,8 +4,24 @@
 
 .maincontainer{
     text-align: center;
+    width: 90%;
+    margin: auto;
+    border: 1px green solid;
+
+    .containerDiv{
+        width: 80%;
+        display: inline-flex;
+        border: 1px blue solid;
+    }
+
+    .uppersection{
+        margin-bottom: 50px;
+        border: 1px orangered solid;
+        padding: 20px 0 50px 0;
+        background-image: url(../../imgs/verticallines.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
 }
 
-.containerDiv{
-    padding: 5px;
-}

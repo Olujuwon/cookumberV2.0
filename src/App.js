@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Router} from "react-router";
-import createBrowserHistory from "history/createBrowserHistory";
 
 import Header from "./components/Header/index";
 import Footer from "./components/Footer/index";
@@ -16,16 +14,13 @@ const defaultProps = {
 	children: "Hello World",
 };
 
-const history = createBrowserHistory();
 
 const App = props => (
-	<Router history= {history}>
-		<div>
-			<Header />
-			{props.children}
-			<Footer />
-		</div>
-	</Router>
+	<div>
+		<Header />
+		{props.children}
+		<Footer />
+	</div>
 );
 
 App.propTypes = propTypes;

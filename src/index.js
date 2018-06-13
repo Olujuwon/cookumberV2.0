@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import registerServiceWorker from "./registerServiceWorker";
 
+
 import {createStore, combineReducers} from "redux";
 import {Provider} from "react-redux";
 import allReducers from "./redux/reducers";
@@ -12,6 +13,8 @@ import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import "./index.scss";
 import App from "./App";
 import MainLayout from "./components/Mainlayout/index";
+import SignIn from "./components/Signin/index";
+import SignUp from "./components/Signup/index";
 
 const rootReducer = combineReducers({
 	reducer: allReducers,
@@ -28,14 +31,16 @@ store.subscribe(throttle(()=>{
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App >
-			<BrowserRouter>
+		<BrowserRouter>
+			<App >
 				<Switch>
 					<Route path="/order" component={MainLayout}/>
+					<Route path="/signin" component={SignIn}/>
+					<Route path="/signup" component={SignUp}/>
 					<Redirect from="/" to = "/order" exact />
 					<Route render={()=><h1>404 Page</h1>}/>
 				</Switch>
-			</BrowserRouter>
-		</App>
+			</App>
+		</BrowserRouter>
 	</Provider>, document.getElementById("root"));
 registerServiceWorker();

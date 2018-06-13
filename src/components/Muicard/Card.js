@@ -5,6 +5,12 @@ import fav from "../../imgs/fav.svg";
 import Button from "@material-ui/core/Button";
 import Badge from "@material-ui/core/Badge";
 import { withStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
 import "./card.scss";
 
@@ -33,14 +39,21 @@ const styles = theme => ({
 	padding: {
 		padding: `0 ${theme.spacing.unit / 2}px`,
 	},
+	badge:{
+		"background-color": "rgba(242, 122, 53, 0.678)",
+		width:"19px",
+		height:"19px",
+		color:"green",
+	}
 });
 
 
-class OrderCard extends React.Component{
+class Order extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-
+			fav: null,
+			like: null
 		};
 	}
 
@@ -52,7 +65,13 @@ class OrderCard extends React.Component{
 		alert("Are you Sure you want This meal?");
 	}
 
+	handleFavIconClick = ()=>{
+		console.log("Favorites");
+		this.setState({fav: this.state.fav + 1});
+	}
+
 	render(){
+		console.log("Badge", this.props);
 		const { classes } = this.props;
 		return(
 			
@@ -67,21 +86,23 @@ class OrderCard extends React.Component{
 					<p className="foodName">Food's Name Food's Name  Food's Name  </p>
 				</div>
 				<div className="icons">
-					<div>
+					<div className="areaRight">
 						<Badge 
-							className={classes.margin} 
-							badgeContent={4} 
+							classes={{badge: classes.badge}}
+							badgeContent={this.state.fav} 
 							color="secondary"
 						>
 							<img 
 								src={fav} 
 								alt="fav" 
-								className="fav"/>
+								className="fav"
+								onClick={()=>this.handleFavIconClick()}
+							/>
 						</Badge>
 						<Badge 
-							className={classes.margin} 
-							badgeContent={7} 
-							color="secondary"
+							classes={{badge: classes.badge}} 
+							badgeContent={this.state.like} 
+							color="primary"
 						>
 							<img 
 								src={like} 
@@ -89,16 +110,81 @@ class OrderCard extends React.Component{
 								className="like"/>
 						</Badge>
 					</div>
-					<div>
+					<div className="areaLeft">
 						<Button 
 							className="muibutton"
-							size="small"
-							variant="raised" 
+							size="medium"
+							variant="outlined" 
 							color="primary"
 							onClick={this.handleOrder}>
 						Order
 						</Button>
 					</div>
+				</div>
+			</div>
+		);
+	}
+}
+
+class OrderCard extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			
+		};
+	}
+
+	render(){
+		console.log("Badge", this.props);
+		const { classes } = this.props;
+		return(
+			<div className="container">
+				<div className="imageContainer">
+					<img 
+						src={logo} 
+						alt="card" 
+						onMouseOver={this.handleMouseover}
+						className="cardImg"
+					/>
+					<p className="foodName">Food's Name Food's Name  Food's Name  </p>
+				</div>
+				<div className="list">
+					<Paper className={classes.root}>
+						<Table className={classes.table}>
+							<TableHead>
+								<TableRow>
+									<TableCell>Food</TableCell>
+									<TableCell numeric>Price</TableCell>
+								</TableRow>
+							</TableHead>
+							<TableBody>
+								<TableRow>
+									<TableCell component="th" scope="row">
+												Pounded Yam & Egusi
+									</TableCell>
+									<TableCell numeric>NGN 5000</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell component="th" scope="row">
+												Pounded Yam & Egusi
+									</TableCell>
+									<TableCell numeric>NGN 5000</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell component="th" scope="row">
+												Pounded Yam & Egusi
+									</TableCell>
+									<TableCell numeric>NGN 5000</TableCell>
+								</TableRow>
+								<TableRow>
+									<TableCell component="th" scope="row">
+												Pounded Yam & Egusi
+									</TableCell>
+									<TableCell numeric>NGN 5000</TableCell>
+								</TableRow>
+							</TableBody>
+						</Table>
+					</Paper>
 				</div>
 			</div>
 		);

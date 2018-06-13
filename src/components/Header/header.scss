@@ -9,6 +9,10 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: 40px;
+
+    a:link {
+        text-decoration: none;
+    }
 }
 
 .signupButton{
