@@ -1,15 +1,82 @@
 @import "../Scss/variables";
 @import "../Scss/mixins";
 
-.titlecontainer{
-    width: 100%;
+.infocontainer{
+    width: 90%;
     margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 7%;
+
+    .appad{
+       margin-right: 5%;
+    }
+    
+    .analytics{
+       align-self: center;
+       text-align: left;
+
+       .buttonsdiv{
+        line-height: 15px;
+    }
+
+    .mainheadingInfo{
+        align-self: left;
+        line-height: 30px;
+        font-size: 35px;
+        color: $orange;
+    }
+
+    .subheadingInfo{
+        align-self: left;
+        font-size: 15px;
+        color: $lite-grey;
+        padding-bottom: 5%;
+    }
+
+    .buttonone{
+        display: inline;
+        margin: 5px;
+    }
+
+    .buttontwo{
+        display: inline;
+        margin: 5px;
+    }
+
+    }
+    
+    .buttoninfo{
+        background-color: $lite-grey;
+        outline: none;
+        display: inline-flex;
+        justify-content: center;
+        font-size: 10px;
+        text-align: center;
+        border: none;
+        width: 25%;
+         line-height: 15px;
+         border-radius: 20px;
+         cursor: pointer;
+         &:hover{
+            background-color: $white;
+            border: 1px $lite-grey solid;
+         }
+    }
+
+    .infoicon{
+        width: 24px;
+        height: 24px;
+        align-self: center;
+    }
+
+    .buttontext{
+        align-self: center;
+        line-height: 14px;
+        font-size: 16px;
+        color: $grey;
+        margin-left: 10px
+    }
+    
 }
 
-.appad{
-    width: 50%;
-}
-
-.analytics{
-    width: 50%;
-}

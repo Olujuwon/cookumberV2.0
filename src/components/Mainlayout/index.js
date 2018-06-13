@@ -1,26 +1,58 @@
 import React from "react";
+
 import OrderCard from "../Muicard/Card";
 import Info from "../Info/Info";
 import Title from "../Title/Title";
+import {getData} from "../../util/apiutil";
+
+import breakfast from "../../imgs/breakfast.jpg";
+import lunch from "../../imgs/lunch.jpg";
 import sales from "../../imgs/percentage.svg";
 
 import "./index.scss";
 
-const MainLayout = props => {
-	return(
-		<div className="maincontainer">
-			<div className="uppersection">
-				<Title icon={sales} title="Breakfast menu of the day "/>
-				<div className="containerDiv">
-					<OrderCard />
-					<OrderCard />
-				</div>
-			</div>
-			<Info />
-		</div>
-	);
+const fetchData =  async ()=> await getData("http://dev-cookumber.pantheonsite.io/wp-json/acf/v3/menu");
 
-};
+class MainLayout extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			menudataArray:[],
+		};
+	}
+
+	componentWillMount(){
+		this.getDatatoState();
+	}
+
+	getDatatoState = async ()=> this.setState({menudataArray: await fetchData()});
+
+	render(){
+		const dataObject = {...this.state.menudataArray[0]}.acf;
+		const lunchArray = {...dataObject}.lunch;
+		const breakfastArray = {...dataObject}.lunch;
+		return(
+			<div className="maincontainer">
+				<div className="uppersection">
+					<Title icon={sales} title="Breakfast menu of the day "/>
+					<div className="containerDiv">
+						<OrderCard 
+							image={breakfast}
+							cardTitle="Our Delicious Breakfast Options"
+							menuItems ={breakfastArray}
+						/>
+						<OrderCard 
+							image={lunch}
+							cardTitle="Our Delicious Lunch Options"
+							menuItems ={lunchArray}
+						/>
+					</div>
+				</div>
+				<Info />
+			</div>
+		);
+	}
+}
 
 
 export default MainLayout;

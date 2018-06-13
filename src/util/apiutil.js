@@ -1,5 +1,5 @@
 import * as firebase from "firebase";
-
+import axios from "axios";
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -63,3 +63,14 @@ export const postData = async (dataToPost, title) => {
 	}
 };
 
+export const getData = async (url)=>{
+	try{
+		const data = await axios.get(url)
+			.then(response=>response.data);
+		return data;
+	}catch(error){
+		return {
+			error: error
+		};
+	}
+};
