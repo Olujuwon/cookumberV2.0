@@ -1,13 +1,13 @@
 import React from "react";
 
-import OrderCard from "../Muicard/Card";
-import Info from "../Info/Info";
-import Title from "../Title/Title";
+import OrderCard from "../Muicard";
+import Info from "../Info";
+import Title from "../Title";
 import {getData} from "../../util/apiutil";
 
 import breakfast from "../../imgs/breakfast.jpg";
 import lunch from "../../imgs/lunch.jpg";
-import sales from "../../imgs/percentage.svg";
+import headerIcon from "../../imgs/lifeline.svg";
 
 import "./index.scss";
 
@@ -34,7 +34,7 @@ class MainLayout extends React.Component{
 		return(
 			<div className="maincontainer">
 				<div className="uppersection">
-					<Title icon={sales} title="Breakfast menu of the day "/>
+					<Title icon={headerIcon} title="Checkout our delicious meals for the day"/>
 					<div className="containerDiv">
 						<OrderCard 
 							image={breakfast}

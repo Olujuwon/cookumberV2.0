@@ -12,9 +12,9 @@ import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 
 import "./index.scss";
 import App from "./App";
-import MainLayout from "./components/Mainlayout/index";
-import SignIn from "./components/Signin/index";
-import SignUp from "./components/Signup/index";
+import MainLayout from "./components/Mainlayout";
+import SignIn from "./components/Signin";
+import SignUp from "./components/Signup";
 
 const rootReducer = combineReducers({
 	reducer: allReducers,

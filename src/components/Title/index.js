@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import "./title.scss";
+import "./index.scss";
 
 const ComponentTitle = props =>{
 	return (

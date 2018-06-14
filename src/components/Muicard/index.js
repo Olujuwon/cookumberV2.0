@@ -10,7 +10,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import imgplaceholder from "../../imgs/picture.svg";
 
-import "./card.scss";
+import "./index.scss";
 
 
 const styles = theme => ({

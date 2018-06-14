@@ -38,10 +38,10 @@ export const signUp = async (email, password) => {
 export const signIn = async (email, password) => {
 	try{
 		const user = await firebase.auth().signInWithEmailAndPassword(email.trim() , password)
-			.then(user => console.log(user));
+			.then(response => response.user);
 		return user;
 	}catch(error){
-		console.error(error);
+		return{error: error};
 	}
 };
 

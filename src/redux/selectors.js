@@ -1,1 +1,1 @@
-export const formSelector = state => state.form;
+export const userSelector = state => state.reducer.user;

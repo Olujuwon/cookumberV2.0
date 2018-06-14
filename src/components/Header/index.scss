@@ -1,0 +1,49 @@
+@import "../Scss/variables";
+@import "../Scss/mixins";
+
+.headercontainer{
+
+    .toolbar{
+        display: flex;
+        justify-content: space-between;
+    
+        a:link {
+            text-decoration: none;
+        }
+    
+        .logo{
+            margin-top: 5px;
+            width: 180px;
+        }
+    
+    }
+
+    .isloggedin{
+        float: right;
+        margin: auto;
+
+        p{
+            font-size: 14px;
+            color: $lite-grey;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .dropdown{
+            visibility: hidden;
+        }
+
+        .dropdownshow{
+            visibility: visible;
+        }
+    }
+}
+
+
+
+@media screen and (max-width:414px) {
+    .navigation{
+       display:none;
+    }
+}
+

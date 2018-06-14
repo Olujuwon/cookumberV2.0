@@ -7,7 +7,7 @@ import defaultIcon from "../../imgs/picture.svg";
 
 import PropTypes from "prop-types";
 
-import "./info.scss";
+import "./index.scss";
 
 const defaultProps = {
 	icon: defaultIcon,
@@ -38,7 +38,7 @@ const Info = props =>{
 				<h3 className="mainheadingInfo">Order food right from your pocket!</h3>
 				<p className="subheadingInfo">
 					Download our free iOS and Android App and Order
-					food online and track the fastest way possible.
+					food online and track the <br/>fastest way possible.
 				</p>
 				<div className="buttonsdiv">
 					<div className="buttonone">

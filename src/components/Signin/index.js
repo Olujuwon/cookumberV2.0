@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import {connect} from "react-redux";
+import {createUser} from "../../redux/actions";
 import {signIn} from "../../util/apiutil";
+import { withRouter } from "react-router";
 
 import isEmail from "validator/lib/isEmail";
 import isAlphanumeric from "validator/lib/isAlphanumeric";
@@ -31,11 +34,23 @@ class SignIn extends React.Component{
 		username: "",
 		password: "",
 		usernameisvalid: false,
-		passwordisvalid: false
+		passwordisvalid: false,
+		user:{},
 	};
 
 	handleClick = async ()=>{
-		console.log(await signIn(this.state.username, this.state.password));
+		this.setState({user: await signIn(this.state.username, this.state.password)});
+		this.setState({
+			username: "",
+			password: "",
+		});
+		if(this.state.user.error){
+			alert(this.state.user.error.message);
+			return;
+		} else{
+			this.props.createuser(this.state.user);
+			this.props.history.push("/order");
+		}
 	};
 
 	handleBlur = (value)=>{
@@ -96,4 +111,10 @@ class SignIn extends React.Component{
 SignIn.propTypes = propTypes;
 SignIn.defaultProps = defaultProps;
 
-export default SignIn;
+const mapDispatchToProps = (dispatch)=>{
+	return{
+		createuser: (payload)=>dispatch(createUser(payload))
+	};
+};
+
+export default withRouter(connect(null, mapDispatchToProps)(SignIn));
