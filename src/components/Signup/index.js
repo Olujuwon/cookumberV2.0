@@ -35,7 +35,7 @@ class SignUp extends React.Component{
 			address:this.state.address,
 			email: this.state.email,
 		};
-		console.log("Signup", await signUp(this.state.email, this.state.password));
+		console.log("Signup", await signUp(this.state));
 		console.log("Database", await postData(userDetails, title));
 	};
 

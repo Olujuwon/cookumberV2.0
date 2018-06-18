@@ -15,6 +15,7 @@ import App from "./App";
 import MainLayout from "./components/Mainlayout";
 import SignIn from "./components/Signin";
 import SignUp from "./components/Signup";
+import DetailPage from "./components/Detail";
 
 const rootReducer = combineReducers({
 	reducer: allReducers,
@@ -37,6 +38,7 @@ ReactDOM.render(
 					<Route path="/order" component={MainLayout}/>
 					<Route path="/signin" component={SignIn}/>
 					<Route path="/signup" component={SignUp}/>
+					<Route path="/detail" component={DetailPage}/>
 					<Redirect from="/" to = "/order" exact />
 					<Route render={()=><h1>404 Page</h1>}/>
 				</Switch>

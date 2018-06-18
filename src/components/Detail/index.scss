@@ -1,0 +1,128 @@
+@import "../Scss/variables";
+@import "../Scss/mixins";
+
+.detailcontainer{
+    width: 90%;
+    margin: auto;
+
+    .topsection{
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        .rightsection{
+            width: 100%;
+            background-color: lightblue;
+
+            .detailtexts{
+                width: 90%;
+                margin: auto;
+                h3{
+                    font-size: 20px;
+                    color: $grey;
+                }
+                p{
+                    font-size: 13px;
+                    color: $grey;
+                }
+            }
+
+            .detailforms{
+                width: 90%;
+                margin: auto;
+                label{
+                    display: block;
+                    font-size: 15px;
+                    color: $grey;
+                }
+                input::placeholder{
+                    color: $lite-grey;
+                }
+                textarea::placeholder{
+                    color: $lite-grey;
+                }
+                input[type="number"]{
+                    width: 12%;
+                    outline: none;
+                    border: none;
+                    line-height: 18px;
+                    color: $grey;
+                    input[type=number]::-webkit-inner-spin-button, 
+                    input[type=number]::-webkit-outer-spin-button { 
+                    -webkit-appearance: none; 
+                    margin: 0; 
+                    }
+                }
+               textarea{
+                    width: 25%;
+                    outline: none;
+                    border: none;
+                    color: $grey;
+                    line-height: 18px;
+                }
+                input[type="text"]{
+                    width: 25%;
+                }
+                input[type="radio"]{
+                    opacity: 0;
+                    &:checked+label{
+                        background-color: $white;
+                        border: 1px solid $grey;
+                        color: $grey;
+                    }
+                }
+                .radiolabel{
+                    border: none;
+                    width: 120px;
+                    text-align: center;
+                    padding: 5px 0 5px 0;
+                    margin: 0 10px 5px 0;
+                    border-radius: 5px;
+                    background-color: $grey;
+                    color: $white;
+                    font-size: 12px;
+                    display: inline-block;
+                    &:hover{
+                        background-color: $white;
+                        color: $grey;
+                    }
+                    
+                }
+                p{
+                    font-size: 15px;
+                    color: $grey;
+                    font-weight: 500;
+                }
+
+                button{
+                    outline: none;
+                    border: none;
+                    width: 25%;
+                    line-height: 30px;
+                    background-color: $lite-orange;
+                    font-size: 15px;
+                    color: $white;
+                    cursor: pointer;
+                }
+            }
+        }
+        .leftsection{
+            width: 100%;
+            background-color: grey;
+            text-align: center;
+            .bigimage{
+                width: 300px;
+                height: 300px;
+                margin: 50px 0 50px 0;
+            }
+        }
+      
+    }
+    
+    .bottomsection{
+        width: 100%;
+        background-color: lightgreen;
+    }
+}
+
+
+

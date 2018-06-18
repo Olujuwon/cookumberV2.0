@@ -13,23 +13,23 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-export const signUp = async (email, password) => {
-	console.log(email, password);
+export const signUp = async (object) => {
 	try{
-		if(password<8){
-			alert("Password must be 8 or more characters");
-			return;
-		}else{
-			//check if email exists before passing to firebase, send the rest data to database 
-			const response = await firebase.auth().createUserWithEmailAndPassword(email, password);
-			await firebase.auth().currentUser.sendEmailVerification().then(function() {
+		//check if email exists before passing to firebase, send the rest data to database 
+		const response = await firebase.auth().createUserWithEmailAndPassword(object.email, object.password);
+
+		await firebase.auth().currentUser.sendEmailVerification()
+			.then(function() {
 				console.log("Email sent");
-			}).catch(function(error) {
-				console.log("Error", error);
 			});
-			return response;
-			
-		}
+
+		await firebase.auth().currentUser.updateProfile({
+			displayName: object.firstname,
+			phoneNumber: object.phone,
+		}).then(function() {
+			console.log("User update successful");
+		});
+		return response;
 	}catch(error){
 		console.error(error);
 	}
