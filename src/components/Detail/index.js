@@ -76,6 +76,7 @@ class DetailPage extends React.Component{
 	}
 }
 
+
 DetailPage.propTypes = propTypes;
 DetailPage.defaultProps = defaultProps;
 
