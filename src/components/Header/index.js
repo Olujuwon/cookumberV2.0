@@ -1,5 +1,5 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import {connect} from "react-redux";
 import {userSelector} from "../../redux/selectors";
@@ -55,7 +55,7 @@ class Header extends React.Component{
 					{`Hello, ${this.props.user.displayName ?  this.props.user.displayName : this.props.user.email }`}
 				</p>
 				<span className={this.state.showmenu ? "dropdownshow" : "dropdown"}>
-					<p>Profile</p>
+					<Link to={{pathname:"/detail", state: { profile: true }}}><p>Profile</p></Link>
 					<p 
 						onClick={this.handlelogout}
 					>
@@ -71,31 +71,32 @@ class Header extends React.Component{
 		const { classes } = this.props;
 		return (
 			<div className="headercontainer">
+				
 				<Toolbar className="toolbar">
-					<NavLink to="/">
+					<Link to="/">
 						<img 
 							src={logo} 
 							alt="cookumber_logo"
 							className="logo"
 						/>
-					</NavLink>
+					</Link>
 					<div className="leftSection">
-						{this.props.user.email ? "" :<NavLink to="/signin">
+						{this.props.user.email ? "" :<Link to="/signin">
 							<Button 
 								className={classes.button}
 								disabled={this.state.loginState}
 							>
 					Login
 							</Button>
-						</NavLink>}
-						{this.props.user.email ? "" :<NavLink to="/signup">
+						</Link>}
+						{this.props.user.email ? "" :<Link to="/signup">
 							<Button 
 								className={classes.buttonColored}
 								variant="raised" 
 								color="primary">
 					Sign Up
 							</Button>
-						</NavLink>}
+						</Link>}
 					</div>
 				</Toolbar>
 				<div className="isloggedin">

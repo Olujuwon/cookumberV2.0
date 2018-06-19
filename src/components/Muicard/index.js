@@ -2,6 +2,8 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 
 import PropTypes from "prop-types";
+import { withRouter } from "react-router";
+import {Link} from "react-router-dom";
 
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -42,6 +44,7 @@ class OrderCard extends React.Component{
 
 	handleClick = (name, price) => {
 		alert(name, price);
+		this.props.history.push("/detail");
 	}
 
 	render(){
@@ -61,23 +64,26 @@ class OrderCard extends React.Component{
 						<Table className={classes.table}>
 							<TableBody>
 								{this.props.menuItems.map((menuitem, index)=>{return(
+									
 									<TableRow 
 										hover
-										onClick={event => this.handleClick(menuitem.name, menuitem.price)}
 										key={index}
 									>
-										<TableCell 
-											component="th" 
-											scope="row"
-											className={this.props.classes.tablecell}
-										>
-											{menuitem.name}
-										</TableCell>
+										<Link to={{pathname:"/detail", state: {profile: false}}}>
+											<TableCell 
+												component="th" 
+												scope="row"
+												className={this.props.classes.tablecell}
+											>
+												{menuitem.name}
+											</TableCell>
+										</Link>
 										<TableCell 
 											numeric
 											className={this.props.classes.tablecell}
 										>{`NGN ${menuitem.price}`}</TableCell>
 									</TableRow>
+									
 								);})}
 							</TableBody>
 						</Table>
@@ -91,4 +97,4 @@ class OrderCard extends React.Component{
 OrderCard.defaultProps = defaultProps;
 OrderCard.propTypes = propTypes;
 
-export default withStyles(styles)(OrderCard);
+export default withRouter(withStyles(styles)(OrderCard));
