@@ -22,17 +22,24 @@ const MenuDetail = props =>{
 	return(
 		<div>
 			<div className="detailtexts">
-				<h3>{props.heading}</h3>
-				<p>{props.description}</p>
+				<h3>{props.data.name}</h3>
+				<p>{props.data.description}</p>
 			</div>
 			<form className="detailforms">
 				<div>
 					<label htmlFor="">Qty.</label>
-					<input type="number" name="" id="" placeholder="Quantity"/>
+					<input type="number" name="" id="" placeholder="Quantity" value="2"/>
 				</div>
 				<div>
 					<label htmlFor="">Comments</label>
-					<textarea type="text" name="" id="" placeholder="Any other comments/requests to add?" cols="20" rows="3"/>
+					<textarea 
+						type="text" 
+						name="" id="" 
+						placeholder="Any other comments/requests to add?" 
+						cols="20" 
+						rows="3"
+						value="something sha"
+					/>
 				</div>
 				<div>
 					<p>Delivery Options</p>
@@ -67,6 +74,30 @@ const UserDetail = props =>{
 	);
 };
 
+const Cart = (props) =>{
+	return(
+		<div className="bottomsection">
+			<h3>{props.tableheading}</h3>
+			<table>
+				<tbody>
+					<tr>
+						<td>Rice and Sauce</td>
+						<td>1 pack with sides</td>
+						<td>NGN 2500.00</td>
+						<td>Webpay</td>
+						<td>Home delivery</td>
+						<td>edit</td>
+						<td>delete</td>
+					</tr>
+				</tbody>
+			</table>
+			<div className="orderButton">
+				<button>Order</button>
+			</div>
+		</div>
+	);
+};
+
 class DetailPage extends React.Component{
 	state = {
 		isUser: false
@@ -77,74 +108,38 @@ class DetailPage extends React.Component{
 	}
 
 	componentWillMount(){
+		console.log(this.props.location.state.data);
+		if(this.props.location.state===undefined){
+			alert("Unauthorized! Please Signin or Signup.");
+			this.props.history.push("/order");
+			return;
+		}
+
 		if(this.props.location.state.profile){
 			this.handleSwitch();
 		}
 	}
 
 	render(){
-		console.log(this.props.location.state.profile);
 		return(
 			<div className="detailcontainer">
-				<button onClick={this.handleSwitch}>Switch User / Menu</button>
 				<div className="topsection">
 					<div className="leftsection">
 						<img 
-							src={this.props.bigimage} 
+							src={this.props.location.state.data.image.url ? this.props.location.state.data.image.url : this.props.bigimage } 
 							alt="bigimage"
 							className="bigimage"
 						/>
 					</div>
 					<div className="rightsection">
-						{this.state.isUser ? <UserDetail heading={this.props.heading} description={this.props.userdescription}/> : < MenuDetail heading={this.props.heading} description={this.props.description}/>}
+						{this.state.isUser ? <UserDetail heading={this.props.heading} description={this.props.userdescription}/> : < MenuDetail 
+							heading={this.props.heading} 
+							description={this.props.description}
+							data={this.props.location.state.data}
+						/>}
 					</div>
 				</div>
-				{this.state.isUser ? "" : <div className="bottomsection">
-					<h3>{this.props.tableheading}</h3>
-					<table>
-						<tbody>
-							<tr>
-								<td>Rice and Sauce</td>
-								<td>1 pack with sides</td>
-								<td>NGN 2500.00</td>
-								<td>Webpay</td>
-								<td>Home delivery</td>
-								<td>edit</td>
-								<td>delete</td>
-							</tr>
-							<tr>
-								<td>Rice and Sauce</td>
-								<td>1 pack with sides</td>
-								<td>NGN 2500.00</td>
-								<td>Webpay</td>
-								<td>Home delivery</td>
-								<td>edit</td>
-								<td>delete</td>
-							</tr>
-							<tr>
-								<td>Rice and Sauce</td>
-								<td>1 pack with sides</td>
-								<td>NGN 2500.00</td>
-								<td>Webpay</td>
-								<td>Home delivery</td>
-								<td>edit</td>
-								<td>delete</td>
-							</tr>
-							<tr>
-								<td>Rice and Sauce</td>
-								<td>1 pack with sides</td>
-								<td>NGN 2500.00</td>
-								<td>Webpay</td>
-								<td>Home delivery</td>
-								<td>edit</td>
-								<td>delete</td>
-							</tr>
-						</tbody>
-					</table>
-					<div className="orderButton">
-						<button>Order</button>
-					</div>
-				</div>}
+				{this.state.isUser ? "" : <Cart   tableheading={this.props.tableheading}/>}
 			</div>
 		);
 	}

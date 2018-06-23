@@ -30,7 +30,7 @@ class MainLayout extends React.Component{
 	render(){
 		const dataObject = {...this.state.menudataArray[0]}.acf;
 		const lunchArray = {...dataObject}.lunch;
-		const breakfastArray = {...dataObject}.lunch;
+		const breakfastArray = {...dataObject}.breakfast;
 		return(
 			<div className="maincontainer">
 				<div className="uppersection">

@@ -64,26 +64,24 @@ class OrderCard extends React.Component{
 						<Table className={classes.table}>
 							<TableBody>
 								{this.props.menuItems.map((menuitem, index)=>{return(
-									
 									<TableRow 
 										hover
 										key={index}
 									>
-										<Link to={{pathname:"/detail", state: {profile: false}}}>
-											<TableCell 
-												component="th" 
-												scope="row"
-												className={this.props.classes.tablecell}
-											>
+										<TableCell 
+											component="th" 
+											scope="row"
+											className={this.props.classes.tablecell}
+										>
+											<Link to={{pathname:"/detail", state: {profile: false, data: menuitem}}}>
 												{menuitem.name}
-											</TableCell>
-										</Link>
+											</Link>
+										</TableCell>
 										<TableCell 
 											numeric
 											className={this.props.classes.tablecell}
 										>{`NGN ${menuitem.price}`}</TableCell>
 									</TableRow>
-									
 								);})}
 							</TableBody>
 						</Table>

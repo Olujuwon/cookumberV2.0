@@ -3,12 +3,12 @@ import axios from "axios";
 
 // Initialize Firebase
 const firebaseConfig = {
-	apiKey: "AIzaSyBCCd1OIxkOTgRY0rhf-9go6Xs3FPGbR9Q",
-	authDomain: "cookumber-b82fb.firebaseapp.com",
-	databaseURL: "https://cookumber-b82fb.firebaseio.com",
-	projectId: "cookumber-b82fb",
-	storageBucket: "cookumber-b82fb.appspot.com",
-	messagingSenderId: "761805107180"
+	apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+	authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+	databaseURL: process.env.REACT_APP_FIREBASE_DATABASEURL,
+	projectId: process.env.REACT_APP_FIREBASE_PROJECTID ,
+	storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
+	messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID
 };
 firebase.initializeApp(firebaseConfig);
 
