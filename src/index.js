@@ -7,7 +7,6 @@ import {createStore, combineReducers} from "redux";
 import {Provider} from "react-redux";
 import allReducers from "./redux/reducers";
 import throttle from "lodash/throttle";
-import {reducer as formReducer} from "redux-form";
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 
 import "./index.scss";
@@ -19,7 +18,6 @@ import DetailPage from "./components/Detail";
 
 const rootReducer = combineReducers({
 	reducer: allReducers,
-	form: formReducer
 });
 
 const store = createStore(rootReducer, JSON.parse(localStorage.getItem("state")) || undefined,
@@ -38,7 +36,7 @@ ReactDOM.render(
 					<Route path="/order" component={MainLayout}/>
 					<Route path="/signin" component={SignIn}/>
 					<Route path="/signup" component={SignUp}/>
-					<Route path="/detail" component={DetailPage}/>
+					<Route path="/detail" render={({location})=><DetailPage/>}/>
 					<Redirect from="/" to = "/order" exact />
 					<Route render={()=><h1>404 Page</h1>}/>
 				</Switch>

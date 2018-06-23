@@ -8,10 +8,10 @@
     .topsection{
         display: grid;
         grid-template-columns: 50% 50%;
+        margin: 50px 0 0 0;
 
         .rightsection{
             width: 100%;
-            background-color: lightblue;
 
             .detailtexts{
                 width: 90%;
@@ -74,7 +74,7 @@
                     border: none;
                     width: 120px;
                     text-align: center;
-                    padding: 5px 0 5px 0;
+                    padding: 5px 0 5px 0px;
                     margin: 0 10px 5px 0;
                     border-radius: 5px;
                     background-color: $grey;
@@ -102,17 +102,23 @@
                     font-size: 15px;
                     color: $white;
                     cursor: pointer;
+                    margin: 25px 0 25px 16%;
+                    &:hover{
+                        background-color: $lite-grey;
+                        color: $grey;
+                    }
                 }
             }
         }
         .leftsection{
             width: 100%;
-            background-color: grey;
             text-align: center;
             .bigimage{
                 width: 300px;
                 height: 300px;
                 margin: 50px 0 50px 0;
+                border-radius: 10px;
+                opacity: 0.9;
             }
         }
       
@@ -120,7 +126,44 @@
     
     .bottomsection{
         width: 100%;
-        background-color: lightgreen;
+        margin: 100px 0 0 0;
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin: auto;
+        }
+        tr{
+            line-height: 30px;
+            text-indent: 20px;
+            color: $grey;
+            font-size: 15px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .orderButton{
+            width: 100%;
+    
+            button{
+                outline: none;
+                border: none;
+                width: 25%;
+                line-height: 30px;
+                background-color: $lite-orange;
+                font-size: 15px;
+                color: $white;
+                cursor: pointer;
+                margin: 25px 0 25px 0;
+                &:hover{
+                    background-color: $lite-grey;
+                    color: $grey;
+                }
+            }
+        }
     }
 }
 
